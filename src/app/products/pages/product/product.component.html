@@ -1,3 +1,14 @@
 <p>product works!</p>
 
-<products-price></products-price>
+<products-price *ngIf="isProductVisible" [price]="currentPrice"></products-price> <!-- 2 -->
+
+
+<button (click)="isProductVisible =! isProductVisible">Toggle</button> <!-- 1-->
+
+<button (click)="increasePrice()">+1 Price</button>
+
+<!--
+ 1-> En toggle primero se dispara los eventos del padre, para comprobar que no ha habido cambios y luego busca los cambios del componente hijo.
+ ngOnchanges se dispara antes del Init
+ 2-> Dependiendo de lo que haya en toggle (true o false) se activa o desactiva el componente price
+-->
